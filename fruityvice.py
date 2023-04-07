@@ -44,6 +44,7 @@ def load_data(cur, conn):
 
 def create_fruit_db(data, cur, conn):
     #create a table named Fruits
+    cur.execute("DROP TABLE IF EXISTS Fruits")
     cur.execute("CREATE TABLE Fruits (id INTEGER PRIMARY KEY, genus INTEGER, family INTEGER, name TEXT, carbs REAL, protein REAL, fat REAL, calories REAL, sugar REAL)")
 
     #begin loading data into table
@@ -73,6 +74,7 @@ def create_fruit_db(data, cur, conn):
     conn.commit()
 
 def create_genus_db(data, cur, conn):
+    cur.execute("DROP TABLE IF EXISTS Genus")
     #create a table named Genus
     cur.execute("CREATE TABLE Genus (id INTEGER PRIMARY KEY, name TEXT)")
 
@@ -87,6 +89,7 @@ def create_genus_db(data, cur, conn):
     conn.commit()
 
 def create_family_db(data, cur, conn):
+    cur.execute("DROP TABLE IF EXISTS Families")
     #create a table named Families
     cur.execute("CREATE TABLE Families (id INTEGER PRIMARY KEY, name TEXT)")
 
