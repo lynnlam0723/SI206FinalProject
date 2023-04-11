@@ -1,4 +1,3 @@
-import unittest
 import sqlite3
 import json
 import os
@@ -45,7 +44,7 @@ def load_data(cur, conn):
     #create family table
     create_family_db(data, cur, conn)
     cont_family_db(data, cur, conn)
-    
+
     #create fruits table
     create_fruit_db(data, cur, conn)
     continue_loading_fruits(data, cur, conn)
@@ -155,8 +154,16 @@ def cont_family_db(data, cur, conn):
     #commit changes
     conn.commit()
 
-#def calc_data():
+def calc_data(data, cur, conn):
+    #select fruits with the familly "Rosaceae" and determine how many fruits
+    #out of total are in that family
+    cur.execute("SELECT * FROM Fruits WHERE family = ?", ("Rosaceae",))
+    ros_count = len(cur.fetchall())
+    cur.execute("SELECT * FROM Fruits")
+    total_count = len(cur.fetchall())
+    ros_perc = ros_count // total_count * 100
 
+    #join fruits where 
 
 if __name__ == '__main__':
     gather_data()
