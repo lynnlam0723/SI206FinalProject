@@ -18,11 +18,7 @@ import requests
 #     }
 #json is a list of dictionaries
 
-def gather_data():
-    #create path for database
-    path = os.path.dirname(os.path.abspath(__file__))
-    conn = sqlite3.connect(path+'/'+ "fruit.db")
-    cur = conn.cursor()
+def gather_data(cur, conn):
 
     #load data and create databases
     load_data(cur, conn)
@@ -154,7 +150,7 @@ def cont_family_db(data, cur, conn):
     #commit changes
     conn.commit()
 
-def calc_data(data, cur, conn):
+def calc_data(cur, conn):
     #select fruits with the familly "Rosaceae" and determine how many fruits
     #out of total are in that family
     cur.execute("SELECT * FROM Fruits WHERE family = ?", ("Rosaceae",))
@@ -163,10 +159,15 @@ def calc_data(data, cur, conn):
     total_count = len(cur.fetchall())
     ros_perc = ros_count // total_count * 100
 
-    #join fruits where 
+    conn.commit()
 
 if __name__ == '__main__':
-    gather_data()
+    #create path for database
+    path = os.path.dirname(os.path.abspath(__file__))
+    conn = sqlite3.connect(path+'/'+ "fruit.db")
+    cur = conn.cursor()
+
+    gather_data(cur, conn)
     
 
 

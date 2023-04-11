@@ -3,14 +3,9 @@ import json
 import os
 import requests
 
-def gather_data():
-    #create path for database
-    path = os.path.dirname(os.path.abspath(__file__))
-    conn = sqlite3.connect(path+'/'+ "beer.db")
-    cur = conn.cursor()
-
+def gather_data(cur, conn):
     #create table
-    cur.execute("CREATE TABLE IF NOT EXISTS Beers VALUES (id INTEGER PRIMARY KEY, name TEXT, abv INTEGER, ph INTEGER, contributed_by_id INTEGER)")
+    cur.execute("CREATE TABLE IF NOT EXISTS Beers VALUES (id INTEGER PRIMARY KEY, name TEXT, abv REAL, ph REAL, contributed_by_id INTEGER)")
 
     #load in data
     load_data("", cur, conn)
@@ -54,5 +49,14 @@ def create_contributed_db(data, cur, conn):
     #commit changes
     conn.commit()
 
+def data_calcs(cur, conn):
+    #select beers with a ph under 4
+    cur.execute("SELECT name FROM Beers WHERE ph < 4.0")
+
 if __name__ == '__main__':
-    gather_data()
+    #create path for database
+    path = os.path.dirname(os.path.abspath(__file__))
+    conn = sqlite3.connect(path+'/'+ "beer.db")
+    cur = conn.cursor()
+
+    gather_data(cur, conn)
