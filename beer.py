@@ -54,29 +54,33 @@ def create_contributed_db(data, cur, conn):
     conn.commit()
 
 def visualization(data):
-    plt.figure(1)
+    #plt.figure(1)
 
     #create x and y values
 
-    #sort by increasing abv
-    data.sort(key = lambda x: x[1])
+    # #sort by increasing abv
+    # data.sort(key = lambda x: x[1])
 
-    #x = id by abv, y = id by pH
-    # abvs = create_axis_values(data, 1)
-    # phs = create_axis_values(data, 2)
+    # #x = id by abv, y = id by pH
+    # # abvs = create_axis_values(data, 1)
+    # # phs = create_axis_values(data, 2)
 
-    x_vals, y_vals = create_axes(data)
+    # x_vals, y_vals = create_axes(data)
 
-    #create and show scatterplot
-    plt.plot(x_vals, y_vals)
-    plt.show()
-    #no relation :/
+    # #create and show scatterplot
+    # plt.plot(x_vals, y_vals)
+    # plt.show()
+    # #no relation :/
 
     #plot max abvs
+    ax = plt.subplot()
     data.sort(key = lambda x: x[1], reverse=True)
     names = [data[0][3], data[1][3], data[2][3], data[3][3], data[4][3]]
     abvs = [data[0][1], data[1][1], data[2][1], data[3][1], data[4][1]]
-    plt.barh(names, abvs)
+    ax.set_xlabel("Alcohol by Volume (mL by 100 mL)")
+    ax.set_ylabel("Names")
+    ax.set_title("Beers with the Highest ABV Values")
+    ax.barh(names, abvs)
     plt.show()
 
 def create_axes(data):
