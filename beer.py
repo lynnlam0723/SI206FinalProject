@@ -9,9 +9,9 @@ def gather_data(cur, conn):
 
     #load in data
     load_data("", cur, conn)
-    load_data("?page=26&per_page=25", cur, conn)
-    load_data("?page=51&per_page=25", cur, conn)
-    load_data("?page=76&per_page=25", cur, conn)
+    load_data("?page=2", cur, conn)
+    load_data("?page=3", cur, conn)
+    load_data("?page=4", cur, conn)
 
     #close connection
     conn.close()
@@ -31,7 +31,7 @@ def load_data(page_num, cur, conn):
     for beer in data:
         cur.execute("SELECT id FROM Contributers WHERE name = ?", (beer["contributed_by"],))
         b = (beer["id"], beer["name"], beer["abv"], beer["ph"], cur.fetchone()[0])
-        cur.execute("INSERT INTO Beers VALUES (?,?,?,?,?)", b)
+        cur.execute("INSERT OR IGNORE INTO Beers VALUES (?,?,?,?,?)", b)
 
     #commit changes
     conn.commit()
@@ -53,13 +53,16 @@ def create_contributed_db(data, cur, conn):
 
 def data_calcs(cur, conn):
     #select beers with a ph under 4
+    cur.execute("CREATE TABLE IF NOT EXISTS PHUnder4")
     cur.execute("SELECT name FROM Beers WHERE ph < 4.0")
 
-
-if __name__ == '__main__':
+def main():
     #create path for database
     path = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(path+'/'+ "beer.db")
     cur = conn.cursor()
 
     gather_data(cur, conn)
+
+if __name__ == '__main__':
+    main()
