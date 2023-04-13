@@ -2,7 +2,62 @@ import requests
 import os
 import sqlite3
 import json
+import matplotlib
+import matplotlib.pyplot as plt
 
+
+states = [
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming"
+]
 
 def set_up_connection(page):
     # get the response from the URL
@@ -34,20 +89,36 @@ def create_brew_db(conn, cur):
 def insert_into_db(conn, cur, json_data):
     for data in json_data:
         if (data["country"] == "United States"):
-            cur.execute("""INSERT OR IGNORE INTO Breweries(id, name, state, zip_code) VALUES (?, ?, ?, ?)""", 
-                        (data["id"], data["name"], data["state"], int(data["postal_code"].split('-')[0])))
+            cur.execute("""INSERT OR IGNORE INTO Breweries(id, name, state, city, zip_code) VALUES (?, ?, ?, ?, ?)""", 
+                        (data["id"], data["name"], data["state"], data["city"], int(data["postal_code"].split('-')[0])))
     conn.commit()
 
 def access_multiple_pages(conn, cur):
-    for i in range(50):
+    for i in range(1000):
         json_data = set_up_connection(i + 1)
         insert_into_db(conn, cur, json_data)
 
 
+def calculate_number_per_state(conn, cur):
+    result = []
+    for state in states:
+        cur.execute("SELECT * FROM Breweries WHERE state = ?", (state, ))
+        count = int(len(cur.fetchall()))
+        result.append(count)
+    return result
+
+def create_bar_chart(counts_per_state):
+    plt.figure(1)
+    plt.barh(states, counts_per_state)
+    plt.show()
+
 def main():
     conn, cur = set_up_database()
-    create_brew_db(conn, cur)
-    access_multiple_pages(conn, cur)
+    # create_brew_db(conn, cur)
+    # access_multiple_pages(conn, cur)
+    counts_per_state = calculate_number_per_state(conn, cur)
+    create_bar_chart(counts_per_state)
+
 
 
 
