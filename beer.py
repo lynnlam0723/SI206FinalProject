@@ -5,7 +5,7 @@ import requests
 
 def gather_data(cur, conn):
     #create table
-    cur.execute("CREATE TABLE IF NOT EXISTS Beers VALUES (id INTEGER PRIMARY KEY, name TEXT, abv REAL, ph REAL, contributed_by_id INTEGER)")
+    cur.execute("CREATE TABLE IF NOT EXISTS Beers (id INTEGER PRIMARY KEY, name TEXT, abv REAL, ph REAL, contributed_by_id INTEGER)")
 
     #load in data
     load_data("", cur, conn)
@@ -19,7 +19,7 @@ def gather_data(cur, conn):
 def load_data(page_num, cur, conn):
     #get data from API
     url = "https://api.punkapi.com/v2/beers" + page_num
-    response = requests.get("url")
+    response = requests.get(url)
     txt = response.text
     #load json data into python file
     data = json.loads(txt) #list of dicts
@@ -29,7 +29,7 @@ def load_data(page_num, cur, conn):
 
     #data loading in: id, name, abv, ph, contributed by
     for beer in data:
-        cur.execute("SELECT id FROM Contributer WHERE name = ?", (beer["contributed_by"],))
+        cur.execute("SELECT id FROM Contributers WHERE name = ?", (beer["contributed_by"],))
         b = (beer["id"], beer["name"], beer["abv"], beer["ph"], cur.fetchone()[0])
         cur.execute("INSERT INTO Beers VALUES (?,?,?,?,?)", b)
 
@@ -38,13 +38,15 @@ def load_data(page_num, cur, conn):
 
 def create_contributed_db(data, cur, conn):
     #create the table
-    cur.execute("CREATE TABLE IF NOT EXISTS Contributers VALUES (id INTEGER PRIMARY KEY, name TEXT)")
+    cur.execute("CREATE TABLE IF NOT EXISTS Contributers (id INTEGER PRIMARY KEY, name TEXT UNIQUE)")
 
     #load names
-    counter = 1
     for item in data:
+        cur.execute("SELECT MAX(id) FROM Contributers")
+        counter = 1
+        if cur.fetchone()[0] is not None:
+            counter = cur.fetchone()
         cur.execute("INSERT OR IGNORE INTO Contributers VALUES (?,?)", (counter, item["contributed_by"]))
-        counter += 1
 
     #commit changes
     conn.commit()
@@ -52,6 +54,7 @@ def create_contributed_db(data, cur, conn):
 def data_calcs(cur, conn):
     #select beers with a ph under 4
     cur.execute("SELECT name FROM Beers WHERE ph < 4.0")
+
 
 if __name__ == '__main__':
     #create path for database
