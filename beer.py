@@ -74,7 +74,6 @@ def visualization(data):
 
     #plot max abvs
     ax = plt.subplot()
-    data.sort(key = lambda x: x[1], reverse=True)
     names = [data[0][3], data[1][3], data[2][3], data[3][3], data[4][3]]
     abvs = [data[0][1], data[1][1], data[2][1], data[3][1], data[4][1]]
     ax.set_xlabel("Alcohol by Volume (mL by 100 mL)")
@@ -100,6 +99,16 @@ def create_axis_values(data, idx):
             axis.append(beer[idx])
     return axis
 
+def write_calcs(beers):
+    with open("calculations.txt", 'w') as f:
+        f.write("\n\n")
+        f.write("Beers with a pH over 4.4 and abv over 8.0:")
+        #beers: list of tuples
+        for beer in beers:
+            #format: id, abv, ph, name
+            f.write(f"{beer[3]}, pH: {beer[2]}, abv: {beer[1]}\n")
+
+
 def data_calcs(cur, conn):
     #join beers with a ph over 4.4 and abv over 8
 
@@ -112,13 +121,15 @@ def data_calcs(cur, conn):
         cur.execute("INSERT OR IGNORE INTO pHOver4 VALUES (?,?,?,?,?)", b)
 
     #join tables
-    #format: id, abv, ph
+    #format: id, abv, ph, name
     cur.execute("SELECT Beers.id, Beers.abv, pHOver4.ph, pHOver4.name FROM Beers JOIN pHOver4 ON Beers.abv > 8.0 AND Beers.id = pHOver4.id AND Beers.abv < 20.0")
     beers = cur.fetchall()
 
     conn.commit()
 
     #visualize data
+    beers.sort(key = lambda x: x[1], reverse=True)
+    write_calcs(beers)
     visualization(beers)
 
     return cur, conn
