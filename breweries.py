@@ -113,7 +113,7 @@ def create_bar_chart(counts_per_state):
     plt.show()
 
 def print_results_to_file(counts_per_state):
-    with open("breweries_per_state", 'w') as f:
+    with open("calculations", 'w') as f:
         for i in range(50):
             f.write(f"{states[i]}, {counts_per_state[i]}\n")
     
