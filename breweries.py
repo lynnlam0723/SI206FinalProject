@@ -110,10 +110,13 @@ def calculate_number_per_state(conn, cur):
 def create_bar_chart(counts_per_state):
     plt.figure(1)
     plt.barh(states, counts_per_state)
+    plt.title("Breweries by State")
+    plt.xlabel("# of Breweries")
+    plt.ylabel("States")
     plt.show()
 
 def print_results_to_file(counts_per_state):
-    with open("calculations.txt", 'w') as f:
+    with open("calculations.txt", 'a') as f:
         f.write("Number of Breweries by State:\n")
         for i in range(50):
             f.write(f"{states[i]}, {counts_per_state[i]}\n")
@@ -124,7 +127,7 @@ def main():
     # create_brew_db(conn, cur)
     # access_multiple_pages(conn, cur)
     counts_per_state = calculate_number_per_state(conn, cur)
-    # create_bar_chart(counts_per_state)
+    create_bar_chart(counts_per_state)
     print_results_to_file(counts_per_state)
 
 
