@@ -48,3 +48,207 @@ Washington, 264
 West Virginia, 19
 Wisconsin, 109
 Wyoming, 15
+Number of Breweries by State:
+Alabama, 29
+Alaska, 39
+Arizona, 64
+Arkansas, 28
+California, 526
+Colorado, 248
+Connecticut, 62
+Delaware, 18
+Florida, 190
+Georgia, 47
+Hawaii, 18
+Idaho, 36
+Illinois, 143
+Indiana, 92
+Iowa, 60
+Kansas, 27
+Kentucky, 41
+Louisiana, 23
+Maine, 69
+Maryland, 67
+Massachusetts, 93
+Michigan, 219
+Minnesota, 118
+Mississippi, 10
+Missouri, 80
+Montana, 60
+Nebraska, 38
+Nevada, 28
+New Hampshire, 38
+New Jersey, 83
+New Mexico, 50
+New York, 237
+North Carolina, 172
+North Dakota, 19
+Ohio, 158
+Oklahoma, 28
+Oregon, 157
+Pennsylvania, 194
+Rhode Island, 10
+South Carolina, 42
+South Dakota, 26
+Tennessee, 69
+Texas, 196
+Utah, 17
+Vermont, 36
+Virginia, 143
+Washington, 264
+West Virginia, 19
+Wisconsin, 109
+Wyoming, 15
+Number of Breweries by State:
+Alabama, 29
+Alaska, 39
+Arizona, 64
+Arkansas, 28
+California, 526
+Colorado, 248
+Connecticut, 62
+Delaware, 18
+Florida, 190
+Georgia, 47
+Hawaii, 18
+Idaho, 36
+Illinois, 143
+Indiana, 92
+Iowa, 60
+Kansas, 27
+Kentucky, 41
+Louisiana, 23
+Maine, 69
+Maryland, 67
+Massachusetts, 93
+Michigan, 219
+Minnesota, 118
+Mississippi, 10
+Missouri, 80
+Montana, 60
+Nebraska, 38
+Nevada, 28
+New Hampshire, 38
+New Jersey, 83
+New Mexico, 50
+New York, 237
+North Carolina, 172
+North Dakota, 19
+Ohio, 158
+Oklahoma, 28
+Oregon, 157
+Pennsylvania, 194
+Rhode Island, 10
+South Carolina, 42
+South Dakota, 26
+Tennessee, 69
+Texas, 196
+Utah, 17
+Vermont, 36
+Virginia, 143
+Washington, 264
+West Virginia, 19
+Wisconsin, 109
+Wyoming, 15
+Number of Breweries by State:
+Alabama, 29
+Alaska, 39
+Arizona, 64
+Arkansas, 28
+California, 526
+Colorado, 248
+Connecticut, 62
+Delaware, 18
+Florida, 190
+Georgia, 47
+Hawaii, 18
+Idaho, 36
+Illinois, 143
+Indiana, 92
+Iowa, 60
+Kansas, 27
+Kentucky, 41
+Louisiana, 23
+Maine, 69
+Maryland, 67
+Massachusetts, 93
+Michigan, 219
+Minnesota, 118
+Mississippi, 10
+Missouri, 80
+Montana, 60
+Nebraska, 38
+Nevada, 28
+New Hampshire, 38
+New Jersey, 83
+New Mexico, 50
+New York, 237
+North Carolina, 172
+North Dakota, 19
+Ohio, 158
+Oklahoma, 28
+Oregon, 157
+Pennsylvania, 194
+Rhode Island, 10
+South Carolina, 42
+South Dakota, 26
+Tennessee, 69
+Texas, 196
+Utah, 17
+Vermont, 36
+Virginia, 143
+Washington, 264
+West Virginia, 19
+Wisconsin, 109
+Wyoming, 15
+Number of Breweries by State:
+Alabama, 29
+Alaska, 39
+Arizona, 64
+Arkansas, 28
+California, 526
+Colorado, 248
+Connecticut, 62
+Delaware, 18
+Florida, 190
+Georgia, 47
+Hawaii, 18
+Idaho, 36
+Illinois, 143
+Indiana, 92
+Iowa, 60
+Kansas, 27
+Kentucky, 41
+Louisiana, 23
+Maine, 69
+Maryland, 67
+Massachusetts, 93
+Michigan, 219
+Minnesota, 118
+Mississippi, 10
+Missouri, 80
+Montana, 60
+Nebraska, 38
+Nevada, 28
+New Hampshire, 38
+New Jersey, 83
+New Mexico, 50
+New York, 237
+North Carolina, 172
+North Dakota, 19
+Ohio, 158
+Oklahoma, 28
+Oregon, 157
+Pennsylvania, 194
+Rhode Island, 10
+South Carolina, 42
+South Dakota, 26
+Tennessee, 69
+Texas, 196
+Utah, 17
+Vermont, 36
+Virginia, 143
+Washington, 264
+West Virginia, 19
+Wisconsin, 109
+Wyoming, 15
