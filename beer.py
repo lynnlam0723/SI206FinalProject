@@ -93,7 +93,7 @@ def data_calcs(cur, conn):
     return cur, conn
 
 def write_calcs(beers):
-    with open("beers.txt", 'w') as f:
+    with open("beers.txt", 'w', encoding="utf-8-sig") as f:
         f.write("Beers with a pH over 4.4 and abv over 8.0:\n")
         f.write("Name, pH, ABV\n")
         #beers: list of tuples
@@ -110,7 +110,7 @@ def visualization(data):
     ax.set_xlabel("Alcohol by Volume (mL by 100 mL)")
     ax.set_ylabel("Names")
     ax.set_title("Beers with the Highest ABV Values")
-    ax.barh(names, abvs)
+    ax.barh(names, abvs, color='green')
     plt.show()
 
 def main():

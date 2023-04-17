@@ -1,4 +1,4 @@
-Beers with a pH over 4.4 and abv over 8.0:
+﻿Beers with a pH over 4.4 and abv over 8.0:
 Name, pH, ABV
 The End Of History, pH: 4.4, abv: 55.0
 Bowman's Beard - B-Sides, pH: 5.3, abv: 18.3
@@ -35,3 +35,8 @@ Prototype 27, pH: 4.4, abv: 9.2
 Coffee Imperial Stout, pH: 4.4, abv: 9.0
 Dog Fight (w/ Flying Dog), pH: 4.4, abv: 8.5
 U-Boat (w/ Victory Brewing), pH: 4.4, abv: 8.4
+Hello My Name Is Päivi, pH: 4.4, abv: 8.3
+Hello My Name Is Mette-Marit, pH: 4.4, abv: 8.2
+Hello My Name is Vladimir, pH: 4.4, abv: 8.2
+Hello My Name Is Beastie, pH: 4.4, abv: 8.2
+Hello My Name Is Ingrid, pH: 4.4, abv: 8.2
