@@ -1,0 +1,37 @@
+Beers with a pH over 4.4 and abv over 8.0:
+Name, pH, ABV
+The End Of History, pH: 4.4, abv: 55.0
+Bowman's Beard - B-Sides, pH: 5.3, abv: 18.3
+Anarchist Alchemist, pH: 4.4, abv: 16.5
+Lumberjack Stout, pH: 4.4, abv: 15.2
+Dog B, pH: 4.4, abv: 15.0
+Mixtape 8, pH: 4.4, abv: 14.5
+Tokyo Rising Sun - Lowland, pH: 4.4, abv: 13.2
+AB:15, pH: 4.4, abv: 12.8
+Black Eyed King Imp - Vietnamese Coffee Edition, pH: 5.2, abv: 12.7
+AB:07, pH: 5.6, abv: 12.5
+Devine Rebel (w/ Mikkeller), pH: 4.4, abv: 12.5
+AB:05, pH: 4.4, abv: 12.5
+Zephyr, pH: 4.4, abv: 12.5
+Clown King, pH: 4.4, abv: 12.0
+AB:18, pH: 5.2, abv: 11.8
+AB:09, pH: 5.2, abv: 11.6
+AB:10, pH: 4.4, abv: 11.5
+AB:12, pH: 5.3, abv: 11.2
+AB:16, pH: 4.4, abv: 10.6
+Shipwrecker Circus (w/ Oskar Blues), pH: 4.4, abv: 10.5
+Everday Anarchy, pH: 4.4, abv: 10.5
+AB:08, pH: 4.4, abv: 10.43
+Rabiator, pH: 4.4, abv: 10.27
+Sunmaid Stout, pH: 4.4, abv: 10.2
+AB:14, pH: 4.4, abv: 10.0
+Lost Dog (w/Lost Abbey), pH: 4.4, abv: 10.0
+Paradox Islay, pH: 4.4, abv: 10.0
+#Mashtag 2015, pH: 4.4, abv: 10.0
+Cocoa Psycho, pH: 4.4, abv: 10.0
+Black Eyed King Imp, pH: 4.4, abv: 9.5
+Hardcore IPA, pH: 4.4, abv: 9.2
+Prototype 27, pH: 4.4, abv: 9.2
+Coffee Imperial Stout, pH: 4.4, abv: 9.0
+Dog Fight (w/ Flying Dog), pH: 4.4, abv: 8.5
+U-Boat (w/ Victory Brewing), pH: 4.4, abv: 8.4

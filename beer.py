@@ -13,7 +13,7 @@ def gather_data(cur, conn):
 
     #load in data
     cur.execute("SELECT * FROM Beers")
-    count = cur.fetchall().size()
+    count = len(cur.fetchall())
     if count == 0:
         load_data("", cur, conn)
     elif count < 26:
@@ -69,20 +69,20 @@ def load_data(page_num, cur, conn):
 
 def data_calcs(cur, conn):
     #join beers with a ph over 4.4 and abv over 8
-
     #ph over 4.4
-    cur.execute("CREATE TABLE IF NOT EXISTS pHOver4 (id INTEGER PRIMARY KEY, name TEXT, abv REAL, ph REAL, contributed_by_id INTEGER)")
+    #CHANGE TABLE NAME HERE
+    cur.execute("""CREATE TABLE IF NOT EXISTS pHOver4 (id INTEGER PRIMARY KEY, 
+                name TEXT, abv REAL, ph REAL, contributed_by_id INTEGER)""")
     cur.execute("SELECT * FROM Beers WHERE ph > 4.3")
     data = cur.fetchall()
     for beer in data:
         b = (beer[0], beer[1], beer[2], beer[3], beer[4])
         cur.execute("INSERT OR IGNORE INTO pHOver4 VALUES (?,?,?,?,?)", b)
 
-    #join tables
     #format: id, abv, ph, name
-    cur.execute("SELECT Beers.id, Beers.abv, pHOver4.ph, pHOver4.name FROM Beers JOIN pHOver4 ON Beers.abv > 8.0 AND Beers.id = pHOver4.id AND Beers.abv < 20.0")
+    cur.execute("""SELECT Beers.id, Beers.abv, pHOver4.ph, pHOver4.name FROM Beers 
+                JOIN pHOver4 ON Beers.abv > 8.0 AND Beers.id = pHOver4.id""")
     beers = cur.fetchall()
-
     conn.commit()
 
     #visualize data
@@ -93,9 +93,9 @@ def data_calcs(cur, conn):
     return cur, conn
 
 def write_calcs(beers):
-    with open("calculations.txt", 'w') as f:
-        f.write("\n")
-        f.write("Beers with a pH over 4.4 and abv over 8.0:")
+    with open("beers.txt", 'w') as f:
+        f.write("Beers with a pH over 4.4 and abv over 8.0:\n")
+        f.write("Name, pH, ABV\n")
         #beers: list of tuples
         for beer in beers:
             #format: id, abv, ph, name
