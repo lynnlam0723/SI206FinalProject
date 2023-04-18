@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 
 def gather_data(cur, conn):
     #create table
-    #CHANGE TABLE NAME HERE
     cur.execute("""CREATE TABLE IF NOT EXISTS Beers (id INTEGER PRIMARY KEY, name TEXT, 
                  abv REAL, ph REAL, contributed_by_id INTEGER)""")
 
@@ -29,7 +28,6 @@ def gather_data(cur, conn):
 
 def create_contributed_db(data, cur, conn):
     #create the table
-    #CHANGE TABLE NAME HERE
     cur.execute("""CREATE TABLE IF NOT EXISTS Contributers
                  (id INTEGER PRIMARY KEY, name TEXT UNIQUE)""")
 
@@ -70,7 +68,6 @@ def load_data(page_num, cur, conn):
 def data_calcs(cur, conn):
     #join beers with a ph over 4.4 and abv over 8
     #ph over 4.4
-    #CHANGE TABLE NAME HERE
     cur.execute("""CREATE TABLE IF NOT EXISTS pHOver4 (id INTEGER PRIMARY KEY, 
                 name TEXT, abv REAL, ph REAL, contributed_by_id INTEGER)""")
     cur.execute("SELECT * FROM Beers WHERE ph > 4.3")
