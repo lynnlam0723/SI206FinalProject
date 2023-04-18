@@ -84,19 +84,24 @@ def data_calcs(cur, conn):
 
     #visualize data
     beers.sort(key = lambda x: x[1], reverse=True)
-    write_calcs(beers)
     visualization(beers)
+
+    #calculate average ABV value for beers with a pH at least 4.4
+    totalABV = 0
+    count = 0
+    for beer in beers:
+        #list of tuples
+        totalABV += beer[2]
+        count += 1
+    averageABV = totalABV // count
+    write_calcs(averageABV)
 
     return cur, conn
 
-def write_calcs(beers):
+def write_calcs(averageABV):
     with open("beers.txt", 'w', encoding="utf-8-sig") as f:
-        f.write("Beers with a pH over 4.4 and abv over 8.0:\n")
-        f.write("Name, pH, ABV\n")
-        #beers: list of tuples
-        for beer in beers:
-            #format: id, abv, ph, name
-            f.write(f"{beer[3]}, pH: {beer[2]}, abv: {beer[1]}\n")
+        f.write("Average ABV Value for Beers with a pH Value of at least 4.4:\n")
+        f.write(f"Mean: {averageABV} milliliters of ethanol per 100 milliliters of beer")
 
 def visualization(data):
     #plot max abvs

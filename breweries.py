@@ -94,7 +94,7 @@ def insert_into_db(conn, cur, json_data):
     conn.commit()
 
 def access_multiple_pages(conn, cur):
-    for i in range(1000):
+    for i in range():
         json_data = set_up_connection(i + 1)
         insert_into_db(conn, cur, json_data)
 
@@ -124,8 +124,8 @@ def print_results_to_file(counts_per_state):
 
 def main():
     conn, cur = set_up_database()
-    # create_brew_db(conn, cur)
-    # access_multiple_pages(conn, cur)
+    create_brew_db(conn, cur)
+    access_multiple_pages(conn, cur)
     counts_per_state = calculate_number_per_state(conn, cur)
     create_bar_chart(counts_per_state)
     print_results_to_file(counts_per_state)
