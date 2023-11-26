@@ -1,2 +1,2 @@
 # si206finalproj
-SI 206 Working with apis and web scarping
+SI 206 Working with APIs and Web Scraping
